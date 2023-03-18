@@ -112,6 +112,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\vendor\spdlog\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,12 +159,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Waku\Application.cpp" />
+    <ClCompile Include="src\Waku\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Waku.h" />
     <ClInclude Include="src\Waku\Application.h" />
     <ClInclude Include="src\Waku\Core.h" />
     <ClInclude Include="src\Waku\EntryPoint.h" />
+    <ClInclude Include="src\Waku\Log.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
