@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{23CEAB39-C8FA-443D-A425-EC4DC1E852B8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SandBox", "SandBox\SandBox.vcxproj", "{F8D6E50B-DDF2-4A6E-AE1E-55149F71E929}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23CEAB39-C8FA-443D-A425-EC4DC1E852B8}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{23CEAB39-C8FA-443D-A425-EC4DC1E852B8}.Debug|Any CPU.Build.0 = Debug|Win32
+		{23CEAB39-C8FA-443D-A425-EC4DC1E852B8}.Release|Any CPU.ActiveCfg = Release|Win32
+		{23CEAB39-C8FA-443D-A425-EC4DC1E852B8}.Release|Any CPU.Build.0 = Release|Win32
+		{F8D6E50B-DDF2-4A6E-AE1E-55149F71E929}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{F8D6E50B-DDF2-4A6E-AE1E-55149F71E929}.Debug|Any CPU.Build.0 = Debug|Win32
+		{F8D6E50B-DDF2-4A6E-AE1E-55149F71E929}.Release|Any CPU.ActiveCfg = Release|Win32
+		{F8D6E50B-DDF2-4A6E-AE1E-55149F71E929}.Release|Any CPU.Build.0 = Release|Win32
+	EndGlobalSection
+EndGlobal
