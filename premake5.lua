@@ -10,52 +10,6 @@ workspace "Waku"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-project "Engine"
-	location "Engine"
-	kind "SharedLib"
-	language "C++"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-	files
-	{
-		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
-	}
-
-	includedirs
-	{
-		"%{prj.name}/vendor/spdlog/include"
-	}
-
-	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
-		systemversion "10.0.19041.0"
-
-		defines
-		{
-			"WK_PLATFORM_WINDOWS",
-			"WK_BUILD_DLL"
-		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
-
-	filter "configurations:Debug"
-		defines "WK_DEBUG"
-		symbols "On"
-
-	filter "configurations:Release"
-		defines "WK_RELEASE"
-		optimize "On"
-
-	filter "configurations:Dist"
-		defines "WK_DIST"
-		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
@@ -85,7 +39,7 @@ project "Sandbox"
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.19041.0"
+		systemversion "latest"
 
 		defines
 		{
@@ -103,3 +57,55 @@ project "Sandbox"
 	filter "configurations:Dist"
 		defines "WK_DIST"
 		optimize "On" 
+
+project "Engine"
+	location "Engine"
+	kind "SharedLib"
+	language "C++"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "wkpch.h"
+	pchsource "Engine/src/wkpch.cpp"
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"%{prj.name}/vendor/spdlog/include",
+		"Engine/src"
+	}
+
+	filter "system:windows"
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+		defines
+		{
+			"WK_PLATFORM_WINDOWS",
+			"WK_BUILD_DLL"
+		}
+
+		postbuildcommands
+		{
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+		}
+
+	filter "configurations:Debug"
+		defines "WK_DEBUG"
+		symbols "On"
+
+	filter "configurations:Release"
+		defines "WK_RELEASE"
+		optimize "On"
+
+	filter "configurations:Dist"
+		defines "WK_DIST"
+		optimize "On"
+

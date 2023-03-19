@@ -1,9 +1,9 @@
 #pragma once
 //For use by waku applications
 
-#include "Waku/Application.h"
-#include "Waku/Log.h"
+#include "Waku/Core/Application.h"
+#include "Waku/Core/Log.h"
 //-------------Entry Point------------------
-#include "Waku/EntryPoint.h"
+#include "Waku/Core/EntryPoint.h"
 
 //-------------Entry Point------------------
