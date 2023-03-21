@@ -21,9 +21,10 @@ namespace Waku {
 
 	void Application::OnEvent(Event& e)
 	{
+		WK_CORE_TRACE("{0}",e.ToString());
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(WK_BIND_EVENT_FN(Application::OnWindowClose));
-		//dispatcher.Dispatch<WindowResizeEvent>(WK_BIND_EVENT_FN(Application::OnWindowResize));
+		dispatcher.Dispatch<WindowResizeEvent>(WK_BIND_EVENT_FN(Application::OnWindowResize));
 	}
 
 	void Application::Close()
@@ -45,5 +46,10 @@ namespace Waku {
 		m_Running = false;
 		return true;
 	}
-	
+
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		glViewport(0, 0, e.GetWidth(), e.GetHeight());
+		return true;
+	}
 }

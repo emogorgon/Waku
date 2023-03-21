@@ -45,13 +45,13 @@ namespace Waku {
 
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-		
+		bool OnWindowResize(WindowResizeEvent& e);
+
 		ApplicationSpecification m_Specification;
 		Scope<Window> m_Window;
 		bool m_Running = true;
 
 		static Application* s_Instance;
-		//friend int ::main(int argc, char** argv);
 	};
 
 	// To be defined in CLIENT

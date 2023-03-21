@@ -95,7 +95,8 @@ project "Engine"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "Off"
+		runtime "Debug"
 		systemversion "latest"
 
 		defines
