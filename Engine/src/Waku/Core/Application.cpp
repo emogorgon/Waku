@@ -1,7 +1,6 @@
 #include "wkpch.h"
 #include "Application.h"
-
-
+#include "glad/glad.h"
 
 namespace Waku {
 	Application* Application::s_Instance = nullptr;

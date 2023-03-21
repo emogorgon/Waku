@@ -5,6 +5,7 @@
 #include "Waku/Events/ApplicationEvent.h"
 #include "Waku/Events/KeyEvent.h"
 #include "Waku/Events/MouseEvent.h"
+#include <glad/glad.h>
 
 namespace Waku
 {
@@ -64,6 +65,8 @@ namespace Waku
             s_GLFWWindowCount++;
         }
         glfwMakeContextCurrent(m_Window);
+        const int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+        WK_CORE_ASSERT(status, "Failed to initialize Glad!");
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
 

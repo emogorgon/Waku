@@ -13,7 +13,6 @@
 
 #include <Waku/Core/Log.h>
 
-#include <GL/gl.h>
 
 
 #ifdef WK_PLATFORM_WINDOWS

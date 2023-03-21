@@ -1,5 +1,6 @@
 workspace "Waku"
 	architecture "x64"
+	startproject "SandBox"
 
 	configurations
 	{
@@ -13,8 +14,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Engine/vendor/GLFW/include"
+IncludeDir["Glad"] = "Engine/vendor/Glad/include"
+
 
 include "Engine/vendor/GLFW"
+include "Engine/vendor/Glad"
+
 
 project "Sandbox"
 	location "Sandbox"
@@ -53,14 +58,17 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "WK_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "WK_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "WK_DIST"
+		buildoptions "/MD"
 		optimize "On" 
 
 project "Engine"
@@ -84,12 +92,14 @@ project "Engine"
 	{
 		"%{prj.name}/vendor/spdlog/include",
 		"Engine/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -102,7 +112,8 @@ project "Engine"
 		defines
 		{
 			"WK_PLATFORM_WINDOWS",
-			"WK_BUILD_DLL"
+			"WK_BUILD_DLL",	
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -112,13 +123,16 @@ project "Engine"
 
 	filter "configurations:Debug"
 		defines "WK_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "WK_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "WK_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
