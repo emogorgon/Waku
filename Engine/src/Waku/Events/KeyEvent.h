@@ -25,7 +25,7 @@ namespace Waku {
             : KeyEvent(keycode), m_IsRepeat(isRepeat) {}
 
         bool IsRepeat() const { return m_IsRepeat; }
-
+ 
         std::string ToString() const override
         {
             std::stringstream ss;

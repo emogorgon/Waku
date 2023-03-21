@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "Waku/Debug/Instrumentor.h"
+//#include "Waku/Debug/Instrumentor.h"
 #include "Waku/Core/Base.h"
 
 namespace Waku {
@@ -62,6 +62,7 @@ namespace Waku {
 		}
 		
 		// F will be deduced by the compiler
+		// F = std::function<bool(T&)>;
 		template<typename T, typename F>
 		bool Dispatch(const F& func)
 		{

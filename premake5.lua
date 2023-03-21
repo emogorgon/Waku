@@ -11,6 +11,11 @@ workspace "Waku"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Engine/vendor/GLFW/include"
+
+include "Engine/vendor/GLFW"
+
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
@@ -78,7 +83,14 @@ project "Engine"
 	includedirs
 	{
 		"%{prj.name}/vendor/spdlog/include",
-		"Engine/src"
+		"Engine/src",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

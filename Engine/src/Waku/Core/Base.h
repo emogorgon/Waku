@@ -1,9 +1,6 @@
 ﻿#pragma once
-
 #include "PlatformDetection.h"
-
-#include <memory>
-
+#include <iostream>
 #ifdef WK_DEBUG
     #if defined(WK_PLATFORM_WINDOWS)
         #define WK_DEBUGBREAK() __debugbreak()
@@ -42,8 +39,4 @@ namespace Waku {
     {
         return std::make_shared<T>(std::forward<Args>(args)...);
     }
-
 }
-
-#include "../Core/Log.h"
-#include "../Core/Assert.h"

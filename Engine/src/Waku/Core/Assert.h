@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "Waku/Core/Base.h"
-#include "Waku/Core/Log.h"
 #include <filesystem>
 
 #ifdef WK_ENABLE_ASSERTS
