@@ -6,4 +6,5 @@
 	url = https://github.com/TheCherno/glfw
 [submodule "Engine/vendor/imgui"]
 	path = Engine/vendor/imgui
-	url = https://github.com/ocornut/imgui
+	url = https://github.com/emogorgon/imgui
+	ignore = dirty
