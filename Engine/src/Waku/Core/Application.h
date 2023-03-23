@@ -1,10 +1,13 @@
 #pragma once
 
+#include "Layer/Layer.h"
+#include "Layer/LayerStack.h"
 #include "Waku/Core/Base.h"
 
 #include "Waku/Core/Window.h"
 #include "Waku/Events/Event.h"
 #include "Waku/Events/ApplicationEvent.h"
+#include "Waku/ImGui/ImGuiLayer.h"
 
 namespace Waku {
 
@@ -33,6 +36,12 @@ namespace Waku {
 
 		void OnEvent(Event& e);
 
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
+
+		
 		Window& GetWindow() { return *m_Window; }
 
 		void Close();
@@ -51,6 +60,8 @@ namespace Waku {
 		Scope<Window> m_Window;
 		bool m_Running = true;
 
+		LayerStack m_LayerStack;
+		ImGuiLayer* m_ImGuiLayer;
 		static Application* s_Instance;
 	};
 

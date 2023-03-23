@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Waku/Core/Base.h"
-#include "Waku/Core/Layer.h"
+#include "Waku/Core/Layer/Layer.h"
 
 #include <vector>
 

@@ -1,5 +1,5 @@
 #include "wkpch.h"
-#include "Waku/Core/LayerStack.h"
+#include "Waku/Core/Layer/LayerStack.h"
 
 namespace Waku
 {
