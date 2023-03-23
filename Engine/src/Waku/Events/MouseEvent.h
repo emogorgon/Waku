@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "Waku/Events/Event.h"
-#include "Waku/Core/MouseCodes.h"
+#include "Waku/InputCodes/MouseCodes.h"
 
 namespace Waku {
 

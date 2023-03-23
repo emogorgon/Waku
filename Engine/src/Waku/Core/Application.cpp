@@ -20,7 +20,7 @@ namespace Waku {
 
 	void Application::OnEvent(Event& e)
 	{
-		WK_CORE_TRACE("{0}",e.ToString());
+		//WK_CORE_TRACE("{0}",e.ToString());
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(WK_BIND_EVENT_FN(Application::OnWindowClose));
 		dispatcher.Dispatch<WindowResizeEvent>(WK_BIND_EVENT_FN(Application::OnWindowResize));
